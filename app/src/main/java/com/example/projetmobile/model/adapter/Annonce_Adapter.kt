@@ -13,9 +13,7 @@ import com.example.projetmobile.R
 import com.example.projetmobile.model.entity.Annonce
 import java.util.*
 
-class Annonce_Adapter(val context: Context,
-                      var items: ArrayList<Annonce>,
-                      val itemTap: (Annonce) -> Unit) : RecyclerView.Adapter<Annonce_Adapter.ViewHolder>(), Filterable  {
+class Annonce_Adapter(var items: ArrayList<Annonce>) : RecyclerView.Adapter<Annonce_Adapter.ViewHolder>(), Filterable  {
 
     var items_Filtered: ArrayList<Annonce>
 

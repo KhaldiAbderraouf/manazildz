@@ -1,19 +1,20 @@
 package com.example.projetmobile.model.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import com.example.projetmobile.AjouterActivity
+import com.example.projetmobile.Detail
 import com.example.projetmobile.R
 import com.example.projetmobile.model.entity.Annonce
 import java.util.*
 
-class Annonce_Adapter(var items: ArrayList<Annonce>) : RecyclerView.Adapter<Annonce_Adapter.ViewHolder>(), Filterable  {
+class Annonce_Adapter(var items: ArrayList<Annonce>, var ctx : Context) : RecyclerView.Adapter<Annonce_Adapter.ViewHolder>(), Filterable  {
 
     var items_Filtered: ArrayList<Annonce>
 
@@ -30,8 +31,9 @@ class Annonce_Adapter(var items: ArrayList<Annonce>) : RecyclerView.Adapter<Anno
         var description: TextView? = null
         var numero: TextView? = null
         var photo: ImageView? = null
+        var ouvrir: Button? = null
         init {
-            this.titre = row?.findViewById<TextView>(R.id.titre)
+            this.titre = row?.findViewById<TextView>(R.id.soustitre)
             this.depot = row?.findViewById<TextView>(R.id.depot)
             this.wilaya = row?.findViewById<TextView>(R.id.willaya)
             this.taille = row?.findViewById<TextView>(R.id.taille)
@@ -39,6 +41,7 @@ class Annonce_Adapter(var items: ArrayList<Annonce>) : RecyclerView.Adapter<Anno
             this.description = row?.findViewById<TextView>(R.id.description)
             this.numero = row?.findViewById<TextView>(R.id.numero)
             this.photo = row?.findViewById<ImageView>(R.id.photo)
+            this.ouvrir = row?.findViewById<Button>(R.id.ouvrir)
         }
     }
 
@@ -46,7 +49,7 @@ class Annonce_Adapter(var items: ArrayList<Annonce>) : RecyclerView.Adapter<Anno
         val itemView = LayoutInflater.from(p0?.context)
             .inflate(R.layout.element, p0, false)
 
-        return ViewHolder(itemView)
+        return Annonce_Adapter.ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
@@ -59,6 +62,19 @@ class Annonce_Adapter(var items: ArrayList<Annonce>) : RecyclerView.Adapter<Anno
         p0?.prix?.text = annonce.prix.toString()
         p0?.numero?.text = annonce.numero
         p0?.photo?.setImageResource(R.mipmap.ic_launcher)
+        p0?.ouvrir?.setOnClickListener {
+            var clickwrkexp = Intent(ctx, Detail::class.java)
+            clickwrkexp.putExtra("titre", annonce.titre)
+            clickwrkexp.putExtra("depot", annonce.depot)
+            clickwrkexp.putExtra("willaya", annonce.wilaya)
+            clickwrkexp.putExtra("taile", annonce.taille)
+            clickwrkexp.putExtra("description", annonce.description)
+            clickwrkexp.putExtra("numero", annonce.numero)
+            clickwrkexp.putExtra("prix", annonce.prix)
+            clickwrkexp.putExtra("photo", annonce.photo)
+
+            ctx.startActivity(clickwrkexp)
+        }
     }
 
     override fun getItemCount(): Int = items_Filtered.size

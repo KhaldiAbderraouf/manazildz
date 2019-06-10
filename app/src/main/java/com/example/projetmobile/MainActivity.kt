@@ -2,8 +2,11 @@ package com.example.projetmobile
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
+import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -15,7 +18,9 @@ import java.util.*
 import kotlin.collections.ArrayList
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-
+import android.widget.Button
+import android.widget.ImageView
+import com.example.projetmobile.controler.Ajouter_Activity
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,12 +33,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUpRecyclerView()
+        val ajouter = findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        ajouter.setOnClickListener {
+            var clickwrkexp = Intent(this@MainActivity, AjouterActivity::class.java)
+            startActivity(clickwrkexp)
+        }
 
     }
 
     private fun setUpRecyclerView() {
         annonce_List = remplir()
-        annonce_Adapter = Annonce_Adapter(annonce_List)
+        annonce_Adapter = Annonce_Adapter(annonce_List,this@MainActivity)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.setHasFixedSize(true)
@@ -46,14 +56,16 @@ class MainActivity : AppCompatActivity() {
 
     fun remplir():ArrayList<Annonce>{
         val l : ArrayList<Annonce> = ArrayList<Annonce>()
+        val p : ArrayList<String> = ArrayList<String>()
+        p.add("")
         l.add(Annonce("f3 a vendre", Date(2019,4,5),"alger",70,
-            2500000F,"","0551234548",""))
+            2500000F,"","0551234548",p))
         l.add(Annonce("f4 a vendre", Date(2019,2,5),"bouira",80,
-            4000000F,"","0556520874",""))
+            4000000F,"","0556520874",p))
         l.add(Annonce("f5 a vendre", Date(2019,3,5),"bouira",100,
-            1000000F,"","0556520874",""))
+            1000000F,"","0556520874",p))
         l.add(Annonce("villa a vendre", Date(2019,4,6),"bejaia",100,
-            20000000F,"","0556520874",""))
+            20000000F,"","0556520874",p))
         return l
     }
 

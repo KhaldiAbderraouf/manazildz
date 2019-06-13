@@ -3,7 +3,6 @@ package com.example.projetmobile
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
@@ -13,14 +12,16 @@ import android.view.MenuItem
 import android.support.v7.widget.SearchView
 import com.example.projetmobile.model.adapter.Annonce_Adapter
 import com.example.projetmobile.model.entity.Annonce
-import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.ArrayList
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.Button
-import android.widget.ImageView
-import com.example.projetmobile.controler.Ajouter_Activity
+import org.json.JSONObject
+import java.lang.Exception
+import org.json.JSONException
+import org.json.JSONArray
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,10 +36,53 @@ class MainActivity : AppCompatActivity() {
         setUpRecyclerView()
         val ajouter = findViewById<FloatingActionButton>(R.id.floatingActionButton)
         ajouter.setOnClickListener {
-            var clickwrkexp = Intent(this@MainActivity, AjouterActivity::class.java)
-            startActivity(clickwrkexp)
+            to_add()
         }
 
+    }
+
+    private fun to_add(){
+        var clickwrkexp = Intent(this@MainActivity, AjouterActivity::class.java)
+        startActivityForResult(clickwrkexp,10001)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        if (requestCode == 10001) {
+            // make use of "data" = profit
+            var s = data?.getStringExtra("annonce")
+            try{
+                var int: JSONObject = JSONObject(s)
+                annonce_List.add(to_Annonce(int))
+                annonce_Adapter.notifyItemInserted(annonce_List.size-1)
+            }catch (e:Exception){
+                e.stackTrace
+            }
+        }
+    }
+
+    private fun to_Annonce(j:JSONObject):Annonce{
+
+        var a = Annonce(
+            j.get("titre").toString(),
+            Calendar.getInstance().time,
+            j.get("willaya").toString(),
+            j.get("taille").toString().toInt(),
+            j.get("prix").toString().toFloat(),
+            j.get("description").toString(),
+            j.get("numero").toString(),
+            to_array(j.get("photo").toString())
+            )
+        return a
+    }
+
+    private fun to_array(s:String): ArrayList<String> {
+        var str = s
+        str = str.replace("[","")
+        str = str.replace("]","")
+        str = str.replace("\"","")
+        var k = str.split(";")
+        return ArrayList(k)
     }
 
     private fun setUpRecyclerView() {
@@ -59,7 +103,8 @@ class MainActivity : AppCompatActivity() {
         val p : ArrayList<String> = ArrayList<String>()
         p.add("")
         l.add(Annonce("f3 a vendre", Date(2019,4,5),"alger",70,
-            2500000F,"","0551234548",p))
+            2500000F,"Affaire a saisir vend un tres bel appartement richement meublé avec jakousi des grandes terrasses. bien placé a el achour dans une residence cloturé et gardée avec parking au sous sol ,grand espace de jeux pour enfants toutes commodités a coté superette ,pharmacie , patissiers , les ecoles ,",
+            "0551234548",p))
         l.add(Annonce("f4 a vendre", Date(2019,2,5),"bouira",80,
             4000000F,"","0556520874",p))
         l.add(Annonce("f5 a vendre", Date(2019,3,5),"bouira",100,

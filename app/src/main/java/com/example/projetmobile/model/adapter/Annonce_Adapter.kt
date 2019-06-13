@@ -64,15 +64,7 @@ class Annonce_Adapter(var items: ArrayList<Annonce>, var ctx : Context) : Recycl
         p0?.photo?.setImageResource(R.mipmap.ic_launcher)
         p0?.ouvrir?.setOnClickListener {
             var clickwrkexp = Intent(ctx, Detail::class.java)
-            clickwrkexp.putExtra("titre", annonce.titre)
-            clickwrkexp.putExtra("depot", annonce.depot)
-            clickwrkexp.putExtra("willaya", annonce.wilaya)
-            clickwrkexp.putExtra("taile", annonce.taille)
-            clickwrkexp.putExtra("description", annonce.description)
-            clickwrkexp.putExtra("numero", annonce.numero)
-            clickwrkexp.putExtra("prix", annonce.prix)
-            clickwrkexp.putExtra("photo", annonce.photo)
-
+            clickwrkexp.putExtra("annonce",annonce.to_Json().toString())
             ctx.startActivity(clickwrkexp)
         }
     }

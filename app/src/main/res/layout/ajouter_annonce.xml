@@ -42,20 +42,41 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    app:corner_radius="30dp"
-                    android:elevation="5dp"
-                    android:paddingHorizontal="0.25in"
+                    app:corner_radius="10dp"
+                    android:elevation="3dp"
+                    android:paddingHorizontal="10dp"
                     android:background="@color/cardview_light_background"
                     android:layout_marginBottom="5dp">
                 <TextView
-                        android:text="TextView"
+                        android:text="TITRE"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:layout_weight="1"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"/>
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:text="Name"
+                        android:ems="10"
+                        android:id="@+id/Titre_ajt" android:layout_weight="1"/>
+            </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout><com.jcminarro.roundkornerlayout.RoundKornerLinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    app:corner_radius="10dp"
+                    android:elevation="3dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_marginBottom="5dp">
+            <TextView
+                    android:text="Willaya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"/>
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
                         android:ems="10"
                         android:id="@+id/willaya_ajt" android:layout_weight="1"/>
             </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
@@ -64,20 +85,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    app:corner_radius="30dp"
-                    android:elevation="5dp"
-                    android:paddingHorizontal="0.25in"
+                    app:corner_radius="10dp"
+                    android:elevation="3dp"
+                    android:paddingHorizontal="10dp"
                     android:background="@color/cardview_light_background"
                     android:layout_marginBottom="5dp">
                 <TextView
-                        android:text="TextView"
+                        android:text="Taille"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:layout_weight="1"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"/>
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="Name"
+                        android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taille_ajt" android:layout_weight="1"/>
             </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
@@ -86,42 +107,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    app:corner_radius="30dp"
-                    android:elevation="5dp"
-                    android:paddingHorizontal="0.25in"
+                    app:corner_radius="10dp"
+                    android:elevation="3dp"
+                    android:paddingHorizontal="10dp"
                     android:background="@color/cardview_light_background"
                     android:layout_marginBottom="5dp">
                 <TextView
-                        android:text="TextView"
+                        android:text="Prix"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:layout_weight="1"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"/>
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="Name"
+                        android:inputType="number"
                         android:ems="10"
                         android:id="@+id/prix_ajt" android:layout_weight="1"/>
             </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
             <com.jcminarro.roundkornerlayout.RoundKornerLinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="1in"
                     android:layout_marginHorizontal="10dp"
-                    app:corner_radius="30dp"
-                    android:elevation="5dp"
-                    android:paddingHorizontal="0.25in"
+                    app:corner_radius="10dp"
+                    android:elevation="3dp"
+                    android:paddingHorizontal="10dp"
                     android:background="@color/cardview_light_background"
                     android:layout_marginBottom="5dp">
                 <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:layout_weight="1"/>
-                <EditText
+                        android:text="Description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="Name"
+                        android:layout_marginRight="3dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:gravity="start|top"
                         android:ems="10"
                         android:id="@+id/desc_ajt" android:layout_weight="1"/>
             </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
@@ -130,20 +152,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    app:corner_radius="30dp"
-                    android:elevation="5dp"
-                    android:paddingHorizontal="0.25in"
+                    app:corner_radius="10dp"
+                    android:elevation="3dp"
+                    android:paddingHorizontal="10dp"
                     android:background="@color/cardview_light_background"
                     android:layout_marginBottom="5dp">
                 <TextView
-                        android:text="TextView"
+                        android:text="Numero"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:layout_weight="1"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"/>
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="Name"
+                        android:inputType="phone"
                         android:ems="10"
                         android:id="@+id/num_ajt" android:layout_weight="1"/>
             </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
@@ -161,7 +183,7 @@
                     <android.support.design.widget.FloatingActionButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:clickable="true" app:srcCompat="@android:drawable/ic_input_add"
+                            android:clickable="true" app:srcCompat="@drawable/ic_image_black_24dp"
                             android:id="@+id/floatingActionButton1" android:layout_weight="50"
                             android:layout_marginHorizontal="50dp"
                             android:layout_marginVertical="10dp"
@@ -182,9 +204,9 @@
                         android:id="@+id/recycler_view_ajt"/>
             </LinearLayout>
             <Button
-                    android:text="Button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/button2"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/valider_ajt"
+                    android:background="@drawable/ic_send_black_24dp"/>
         </LinearLayout>
     </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
 </ScrollView>

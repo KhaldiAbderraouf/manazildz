@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
         var a = Annonce(
             j.get("titre").toString(),
+            j.get("type").toString(),
             Calendar.getInstance().time,
             j.get("willaya").toString(),
             j.get("taille").toString().toInt(),
@@ -101,14 +102,14 @@ class MainActivity : AppCompatActivity() {
     fun remplir():ArrayList<Annonce>{
         val l : ArrayList<Annonce> = ArrayList<Annonce>()
         val p : ArrayList<String> = ArrayList<String>()
-        l.add(Annonce("f3 a vendre", Date(2019,4,5),"alger",70,
+        l.add(Annonce("f3 a vendre", "Appartement", Date(2019,4,5),"alger",70,
             2500000F,"Affaire a saisir vend un tres bel appartement richement meublé avec jakousi des grandes terrasses. bien placé a el achour dans une residence cloturé et gardée avec parking au sous sol ,grand espace de jeux pour enfants toutes commodités a coté superette ,pharmacie , patissiers , les ecoles ,",
             "0551234548",p))
-        l.add(Annonce("f4 a vendre", Date(2019,2,5),"bouira",80,
+        l.add(Annonce("f4 a vendre", "Appartement", Date(2019,2,5),"bouira",80,
             4000000F,"","0556520874",p))
-        l.add(Annonce("f5 a vendre", Date(2019,3,5),"bouira",100,
+        l.add(Annonce("f5 a vendre", "Appartement", Date(2019,3,5),"bouira",100,
             1000000F,"","0556520874",p))
-        l.add(Annonce("villa a vendre", Date(2019,4,6),"bejaia",100,
+        l.add(Annonce("villa a vendre", "Villa", Date(2019,4,6),"bejaia",100,
             20000000F,"","0556520874",p))
         return l
     }

@@ -46,6 +46,7 @@ class Detail : AppCompatActivity() {
 
         findViewById<TextView>(R.id.soustitre_detail).setText(int.get("titre").toString())
         findViewById<TextView>(R.id.date_detail).setText(int.get("depot").toString())
+        findViewById<TextView>(R.id.type_detail).setText(int.get("type").toString())
         findViewById<TextView>(R.id.willaya_detail).setText(int.get("willaya").toString())
         findViewById<TextView>(R.id.taille_detail).setText(int.get("taille").toString())
         findViewById<TextView>(R.id.prix_detail).setText(int.get("prix").toString())

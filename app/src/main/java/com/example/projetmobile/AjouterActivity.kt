@@ -9,25 +9,35 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.example.projetmobile.model.adapter.Image_Upl_Adapter
 import kotlinx.android.synthetic.main.ajouter_annonce.*
 import org.json.JSONObject
 
-class AjouterActivity : AppCompatActivity() {
+class AjouterActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+    }
 
     lateinit var List: ArrayList<ImageView>
     lateinit var List_img: ArrayList<String>
     lateinit var Adapter: Image_Upl_Adapter
     lateinit var int: Intent
+    var list_of_items = arrayOf("Terrain", "Appartement", "villa")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ajouter_annonce)
         setUpRecyclerView()
+
+        Type_ajt!!.setOnItemSelectedListener(this)
+        val array_adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list_of_items)
+        array_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        Type_ajt!!.setAdapter(array_adapter)
 
         findViewById<Button>(R.id.valider_ajt).setOnClickListener {
             return_main()
@@ -71,6 +81,7 @@ class AjouterActivity : AppCompatActivity() {
         var j : JSONObject = JSONObject()
 
         j.put("titre",findViewById<EditText>(R.id.Titre_ajt).text)
+        j.put("type",findViewById<Spinner>(R.id.Type_ajt).selectedItem.toString())
         j.put("willaya",findViewById<EditText>(R.id.willaya_ajt).text)
         j.put("taille",findViewById<EditText>(R.id.taille_ajt).text)
         j.put("prix",findViewById<EditText>(R.id.prix_ajt).text)

@@ -68,6 +68,27 @@
                     android:paddingHorizontal="10dp"
                     android:background="@color/cardview_light_background"
                     android:layout_marginBottom="5dp">
+                <TextView
+                        android:text="TYPE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"/>
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Type_ajt"
+                    android:layout_weight="1"/>
+            </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
+            <com.jcminarro.roundkornerlayout.RoundKornerLinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    app:corner_radius="10dp"
+                    android:elevation="3dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_marginBottom="5dp">
             <TextView
                     android:text="Willaya"
                     android:layout_width="wrap_content"

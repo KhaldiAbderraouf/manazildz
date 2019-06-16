@@ -25,6 +25,7 @@ class Annonce_Adapter(var items: ArrayList<Annonce>, var ctx : Context) : Recycl
 
     class ViewHolder(row: View) : RecyclerView.ViewHolder(row) {
         var titre:TextView? = null
+        var type:TextView? = null
         var depot: TextView? = null
         var wilaya: TextView? = null
         var taille: TextView? = null
@@ -35,6 +36,7 @@ class Annonce_Adapter(var items: ArrayList<Annonce>, var ctx : Context) : Recycl
         var ouvrir: Button? = null
         init {
             this.titre = row?.findViewById<TextView>(R.id.soustitre)
+            this.type = row?.findViewById<TextView>(R.id.type)
             this.depot = row?.findViewById<TextView>(R.id.depot)
             this.wilaya = row?.findViewById<TextView>(R.id.willaya)
             this.taille = row?.findViewById<TextView>(R.id.taille)
@@ -56,6 +58,7 @@ class Annonce_Adapter(var items: ArrayList<Annonce>, var ctx : Context) : Recycl
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         var annonce = items[p1]
         p0?.titre?.text = annonce.titre
+        p0?.type?.text = annonce.type
         p0?.depot?.text = annonce.depot.toString()
         p0?.wilaya?.text = annonce.wilaya
         p0?.taille?.text = annonce.taille.toString()

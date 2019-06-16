@@ -4,11 +4,12 @@ import org.json.JSONObject
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Annonce(var titre:String, var depot:Date, var wilaya:String, var taille:Int, var prix:Float, var description:String, var numero:String?, var photo:ArrayList<String>) {
+class Annonce(var titre:String, var type:String, var depot:Date, var wilaya:String, var taille:Int, var prix:Float, var description:String, var numero:String?, var photo:ArrayList<String>) {
     fun to_Json():JSONObject{
         var j :JSONObject = JSONObject()
 
         j.put("titre",titre)
+        j.put("type",type)
         j.put("depot",depot)
         j.put("willaya",wilaya)
         j.put("taille",taille)

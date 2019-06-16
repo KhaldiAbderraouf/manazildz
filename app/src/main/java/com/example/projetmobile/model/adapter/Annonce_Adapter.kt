@@ -2,6 +2,7 @@ package com.example.projetmobile.model.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -61,7 +62,8 @@ class Annonce_Adapter(var items: ArrayList<Annonce>, var ctx : Context) : Recycl
         p0?.description?.text = annonce.description
         p0?.prix?.text = annonce.prix.toString()
         p0?.numero?.text = annonce.numero
-        p0?.photo?.setImageResource(R.mipmap.ic_launcher)
+        if(annonce.photo.isEmpty()){p0?.photo?.setImageResource(R.mipmap.ic_launcher)}
+        else{p0?.photo?.setImageURI(Uri.parse(annonce.photo.get(0)))}
         p0?.ouvrir?.setOnClickListener {
             var clickwrkexp = Intent(ctx, Detail::class.java)
             clickwrkexp.putExtra("annonce",annonce.to_Json().toString())

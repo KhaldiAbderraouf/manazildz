@@ -25,7 +25,7 @@ class Image_Upl_Adapter(var items: ArrayList<ImageView>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(p: Image_Upl_Adapter.ViewHolder1, p1: Int) {
         var image = items[p1]
-        p?.photo?.setImageResource(R.drawable.ic_launcher_background)
+        p?.photo?.setImageDrawable(image.drawable)
     }
 
     override fun getItemCount(): Int = items.size

@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         str = str.replace("[","")
         str = str.replace("]","")
         str = str.replace("\"","")
-        var k = str.split(";")
+        var k = str.split(",")
         return ArrayList(k)
     }
 
@@ -101,7 +101,6 @@ class MainActivity : AppCompatActivity() {
     fun remplir():ArrayList<Annonce>{
         val l : ArrayList<Annonce> = ArrayList<Annonce>()
         val p : ArrayList<String> = ArrayList<String>()
-        p.add("")
         l.add(Annonce("f3 a vendre", Date(2019,4,5),"alger",70,
             2500000F,"Affaire a saisir vend un tres bel appartement richement meublé avec jakousi des grandes terrasses. bien placé a el achour dans une residence cloturé et gardée avec parking au sous sol ,grand espace de jeux pour enfants toutes commodités a coté superette ,pharmacie , patissiers , les ecoles ,",
             "0551234548",p))
